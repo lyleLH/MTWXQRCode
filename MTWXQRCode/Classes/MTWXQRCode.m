@@ -35,7 +35,7 @@ WX_EXPORT_METHOD(@selector(createQRCode:callback:))
 
 - (void)scanQRCode:(WXModuleCallback)callback {
     NSLog(@"scan  test");
-  
+    NSLog(@"cocoapods test dev version ");
     
     [self QRCodeScanVcCallback:^(id result) {
         callback(result);
