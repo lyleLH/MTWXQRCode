@@ -1,0 +1,6 @@
+framework module MTWXQRCode {
+  umbrella header "MTWXQRCode-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "MTWXQRCode",
+  "version": "0.1.0",
+  "summary": "mtt test A short description of MTWXQRCode.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/lyleLH/MTWXQRCode",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "v2top1@163.com": "v2top1@163.com"
+  },
+  "source": {
+    "git": "https://github.com/lyleLH/MTWXQRCode.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "MTWXQRCode/Classes/**/*",
+  "dependencies": {
+    "WeexSDK": [
+
+    ],
+    "SGQRCode": [
+      "~> 3.0.1"
+    ],
+    "MBProgressHUD": [
+      "~> 1.1.0"
+    ],
+    "SDWebImage": [
+      "~>4.4.2"
+    ]
+  }
+}

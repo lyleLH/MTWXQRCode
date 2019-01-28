@@ -1,0 +1,6 @@
+framework module Pods_MTWXQRCode_Tests {
+  umbrella header "Pods-MTWXQRCode_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

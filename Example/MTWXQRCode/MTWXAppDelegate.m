@@ -1,21 +1,67 @@
 //
-//  MTWXAppDelegate.m
-//  MTWXQRCode
+//  VKWXAppDelegate.m
+//  VKWXTimePicker
 //
-//  Created by v2top1@163.com on 01/28/2019.
-//  Copyright (c) 2019 v2top1@163.com. All rights reserved.
+//  Created by MTTGCC on 12/03/2018.
+//  Copyright (c) 2018 MTTGCC. All rights reserved.
 //
 
 #import "MTWXAppDelegate.h"
+#import <WeexSDK/WeexSDK.h>
+#import "MTDemoViewController.h"
+#import "MTWXQRCode.h"
+
+
+@interface MTWXAppDelegate ()
+
+@end
+
 
 @implementation MTWXAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // 初始化weexSDK
+    [self initWeexSDK];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+   
+    
+    //获取js路径
+    NSURL * sourceUrl = [[NSBundle mainBundle] URLForResource:@"index" withExtension:@"js"];
+    //生成weex页面容器
+    MTDemoViewController *wxDemoVC = [[MTDemoViewController alloc] initWithSourceURL:sourceUrl];
+    //设置窗口根视图
+    self.window.rootViewController = [[WXRootViewController alloc] initWithRootViewController:wxDemoVC];
+    
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
+/**
+ 初始化weexSDK
+ */
+- (void)initWeexSDK {
+    
+    //设置APP信息
+    [WXAppConfiguration setAppGroup:@"AliApp"];
+    [WXAppConfiguration setAppName:@"WeexDemo"];
+    [WXAppConfiguration setAppVersion:@"1.8.3"];
+    
+    //初始weex环境
+    [WXSDKEngine initSDKEnvironment];
+    //注册图片加载协议
+    [WXSDKEngine registerHandler:[VKWXQRCode new] withProtocol:@protocol(WXImgLoaderProtocol)];
+    //注册组件
+    [WXSDKEngine registerModule:@"wxQRCode" withClass:[VKWXQRCode class]];
+    
+    //打印设置
+    [WXLog setLogLevel:WXLogLevelLog];
+}
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

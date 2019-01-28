@@ -1,9 +1,9 @@
 //
-//  MTWXAppDelegate.h
-//  MTWXQRCode
+//  VKWXAppDelegate.h
+//  VKWXTimePicker
 //
-//  Created by v2top1@163.com on 01/28/2019.
-//  Copyright (c) 2019 v2top1@163.com. All rights reserved.
+//  Created by MTTGCC on 12/03/2018.
+//  Copyright (c) 2018 MTTGCC. All rights reserved.
 //
 
 @import UIKit;
