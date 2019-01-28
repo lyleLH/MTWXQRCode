@@ -22,7 +22,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
+    NSLog(@"cocoapods test dev version ");
     // 初始化weexSDK
     [self initWeexSDK];
     
